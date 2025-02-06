@@ -1,0 +1,8 @@
+./components
+./node_modules
+./tsconfig.json
+./rollup.config.js
+./tsconfig.json
+./yarn.lock
+./.gitignore
+./index.ts

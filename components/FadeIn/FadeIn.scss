@@ -1,0 +1,19 @@
+.uixtra-fade-in-wrapper {
+  transition: all 700 ease-out;
+}
+
+.uixtra-fade-in-wrapper.opacity-100 {
+  opacity: 100;
+}
+
+.uixtra-fade-in-wrapper.opacity-0 {
+  opacity: 0;
+}
+
+.uixtra-fade-in-wrapper.translate-y-0 {
+  transform: translateY(0);
+}
+
+.uixtra-fade-in-wrapper.translate-y-8 {
+  transform: translateY(-2rem);
+}
