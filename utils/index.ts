@@ -59,21 +59,33 @@ export const isEmpty = (item: any): Boolean => {
 
 /**
  * Performs a logical AND operation on two conditions.
- * @param condition1 - The first condition to check.
- * @param condition2 - The second condition to check.
+ * @param conditions N number of conditions
+ * If conditions passed are 2 then returns && between them
+ * If conditions passed are more than 2 then returns boolean value && with all of them
  * @returns The result of the logical AND operation.
  */
-export const and = (condition1: any, condition2: any): any =>
-  condition1 && condition2;
+export const and = (...conditions: Array<any>): any | boolean => {
+  if (conditions.length === 2) {
+    return conditions[0] && conditions[1];
+  } else {
+    return conditions.every(Boolean);
+  }
+};
 
 /**
  * Performs logical OR operation between two conditions
- * @param condition First condition
- * @param condition2 Second condition
+ *@param conditions N number of conditions
+ * If conditions passed are 2 then returns || between them
+ * If conditions passed are more than 2 then returns boolean value || with all of them
  * @returns Result of the logical OR operation
  */
-export const or = (condition: any, condition2: any): any =>
-  condition || condition2;
+export const or = (...conditions: Array<any>): any | boolean => {
+  if (conditions.length === 2) {
+    return conditions[0] || conditions[1];
+  } else {
+    return conditions.some(Boolean);
+  }
+};
 
 /**
  * Retrieves the value of a nested property from an object.
@@ -94,13 +106,13 @@ export const getProperty = (
   }
   let info: any = obj;
   for (const prop of property) {
-    if (isEmpty(info)) {
+    if (isNullOrUndefined(info)) {
       return defaultValue;
     } else {
       info = info[prop];
     }
   }
-  if (isEmpty(info)) {
+  if (isNullOrUndefined(info)) {
     return defaultValue;
   }
   return info;

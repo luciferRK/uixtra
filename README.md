@@ -205,16 +205,16 @@ console.log(isEmpty({ a: 1 })); // Output: false
 
 ### `and`
 
-Performs a logical AND operation on two conditions.
+Performs a logical AND operation on conditions provided.
 
 **Parameters:**
 
-- `condition1`: `any` - The first condition to check.
-- `condition2`: `any` - The second condition to check.
+- `conditions`: `Array<any>` - List of Conditions to Check
 
 **Returns:**
 
-- `any` - The result of the logical AND operation.
+- `any` - The result of the logical AND operation when the length of the conditions are 2.
+- `boolean` - The result of logical AND on all conditions provided
 
 **Example:**
 
@@ -223,20 +223,23 @@ import { and } from 'uixtra/utils';
 
 const result = and(true, false);
 console.log(result); // Output: false
+
+const result = and(true, true, true);
+console.log(result); // Output: true
 ```
 
 ### `or`
 
-Performs a logical OR operation between two conditions.
+Performs a logical OR operation between conditions provided.
 
 **Parameters:**
 
-- `condition`: `any` - The first condition to check.
-- `condition2`: `any` - The second condition to check.
+- `conditions`: `Array<any>` - List of Conditions to Check
 
 **Returns:**
 
-- `any` - The result of the logical OR operation.
+- `any` - The result of the logical OR operation when the length of the conditions are 2.
+- `boolean` - The result of logical OR on all conditions provided
 
 **Example:**
 

@@ -1,3 +1,7 @@
+## Version 1.0.3
+
+> - Updated getProperty, and & or utility Functions
+
 ## Version 1.0.2
 
 > - Initial Acceptable React Version changed to v18.2.0 from v18.3.1
