@@ -1,3 +1,11 @@
+## Version 1.0.4
+
+> - Added support to React 17.0.2 and above
+>
+> #### Components (Addition)
+>
+> - Repeat
+
 ## Version 1.0.3
 
 > - Updated getProperty, and & or utility Functions

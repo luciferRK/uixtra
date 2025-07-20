@@ -11,6 +11,7 @@ This prohect is a UI library for some majorly used scenarios in React based proj
   - [ShowIf](#show)
   - [ShowIfElse](#showifelse)
   - [FadeIn](#fadein)
+  - [Repeat](#repeat)
 
 - ### [Utility Functions](#utils-module)
 
@@ -126,6 +127,71 @@ const App = () => (
 );
 
 export default App;
+```
+
+## Repeat
+
+This component can be used instead of .map while rendering a list of components
+
+#### RepeatProps
+
+#### `for`: `Array<any>`
+
+Array of items for which the rendering should happen
+
+#### `element`: `React Component`
+
+The Component which should be rendered multiple times
+
+#### `key`: `Function` (Optional)
+
+Function to generate unique key for each render. Default is item's id with the index
+
+#### `passItem`: `boolean` (Optional)
+
+Decides whether to pass the array item to the element as a prop
+
+#### `passIndex`: `boolean` (Optional)
+
+Decides whether to pass the index to the element as a prop
+
+#### `restProps`: (Internal Handled)
+
+Any other props passed to the Repeat Component will be passed on to the element on each render
+
+### Example Usage
+
+```jsx
+import React from 'react';
+import { Repeat } from 'uixtra/components';
+//OR
+import Repeat from 'uixtra/components/Repeat';
+
+const SampleComponent = (props) => {
+  const { item, index, className } = props;
+
+  return (
+    <div className={className}>
+      <div>{item.name}</div>
+    </div>
+  );
+}
+
+const App = () => (
+  <div>
+    <Repeat
+      for={[
+        { name: 'John Doe', age: 35 }.
+        { name: 'Jane Doe', age: 30 }
+      ]}
+      element={SampleComponent}
+      key={(item) => item.name}
+      passItem
+      passIndex
+      className="sample-item"
+    >
+  </div>
+)
 ```
 
 ---
