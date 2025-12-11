@@ -178,3 +178,11 @@ export function classNames(...args: any[]): string {
   return classes;
 }
 //Functions for ClassNames utility ends here
+
+/**
+ * Utility type that allows modifying specific properties of a type
+ * @example
+ * type User = { id: string; name: string; age: number };
+ * type ModifiedUser = Modify<User, { id: number }>; // { id: number; name: string; age: number }
+ */
+export type Modify<T, R> = Omit<T, keyof R> & R;

@@ -1,3 +1,8 @@
+## Version 1.0.5
+
+> - Added Modify Type Utility
+> - Updated @rollup/plugin-commonjs and rimraf package versions
+
 ## Version 1.0.4
 
 > - Added support to React 17.0.2 and above

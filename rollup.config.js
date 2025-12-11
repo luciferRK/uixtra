@@ -15,7 +15,6 @@ const commonPlugins = () => [
   resolve(),
   commonjs(),
   postcss({
-    use: ['sass'],
     extensions: ['.scss', '.sass', '.css'],
     sourceMap: true,
   }),

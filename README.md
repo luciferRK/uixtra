@@ -376,6 +376,27 @@ console.log(res1); // Output: 100
 console.log(res2); // Output: 99
 ```
 
+### `Modify`
+
+Modify allows modifying specific properties of a type
+
+**Parameters:**
+
+- `argument1`: `Type | Interface` - An interface or Type.
+- `argument2`: `Type | Interface` - An interface or Type with properties to be modified
+
+**Returns:**
+
+- `any`: `Type` - A Type with modified properties of argument 1
+
+**Example:**
+
+```typescript
+type User = { id: string; name: string; age: number };
+type ModifiedUser = Modify<User, { id: number }>;
+//ModifiedUser will be { id: number; name: string; age: number }
+ ```
+
 ### Exports
 
 The `utils/index.ts` file exports the following functions:
@@ -387,6 +408,7 @@ The `utils/index.ts` file exports the following functions:
 - `or`
 - `classNames`
 - `getProperty`
+- `Modify`
 
 These functions can be imported and used in other parts of the application as needed.
 
@@ -401,5 +423,6 @@ import {
   or,
   classNames,
   getProperty,
+  Modify,
 } from 'uixtra/utils';
 ```
