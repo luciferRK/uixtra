@@ -23,9 +23,6 @@ async function createPackageJson() {
   const newPackageData = {
     ...restPackageContent,
     private: false,
-    typings: './index.d.ts',
-    main: './index.cjs.js',
-    module: './index.esm.js',
   };
 
   const targetPath = path.resolve(distPath, './package.json');
@@ -57,6 +54,7 @@ async function run() {
     await createPackageJson();
     await includeFileInBuild('./README.md');
     await includeFileInBuild('./versions.md');
+    await includeFileInBuild('./LICENSE');
   } catch (err) {
     logger.error(err);
     process.exit(1);

@@ -1,3 +1,8 @@
+## Version 1.0.6
+
+> - Discarded deep-api imports for components
+> - Discarded root export of all components / utils to reduce build size
+
 ## Version 1.0.5
 
 > - Added Modify Type Utility

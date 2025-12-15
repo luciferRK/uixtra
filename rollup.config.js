@@ -24,36 +24,12 @@ const commonPlugins = () => [
 function configForComponent(commonPlugins = [], folder) {
   return {
     input: `./components/${folder}/index.ts`,
-    output: [
-      {
-        file: `dist/components/${folder}/index.esm.js`,
-        exports: 'named',
-        format: 'esm',
-        banner: "'use client';",
-      },
-      {
-        file: `dist/components/${folder}/index.cjs.js`,
-        exports: 'named',
-        format: 'cjs',
-        banner: "'use client';",
-      },
-    ],
+    output: [],
     plugins: [
       ...commonPlugins,
       typescript2({
         tsconfig: './tsconfigForComp.json',
         useTsconfigDeclarationDir: true,
-      }),
-      generatePackageJson({
-        baseContents: {
-          name: `${packageJson.name}/components/${folder}`,
-          private: true,
-          main: './index.cjs.js',
-          module: './index.esm.js',
-          types: './index.d.ts',
-          peerDependencies: packageJson.peerDependencies,
-        },
-        outputFolder: `dist/components/${folder}/`,
       }),
     ],
     external: (id) => !(path.isAbsolute(id) || id.startsWith('.')),
@@ -134,38 +110,10 @@ export default [
           main: './index.cjs.js',
           module: './index.esm.js',
           types: './index.d.ts',
-          peerDependencies: packageJson.peerDependencies,
         },
         outputFolder: `dist/utils`,
       }),
     ],
     external: [/node_modules/],
-  },
-  {
-    input: './index.ts',
-    output: [
-      {
-        file: 'dist/index.esm.js',
-        format: 'esm',
-        exports: 'named',
-        banner: `'use client';`,
-      },
-      {
-        file: 'dist/index.cjs.js',
-        format: 'cjs',
-        exports: 'named',
-        banner: `'use client';`,
-      },
-    ],
-    plugins: [
-      ...commonPlugins(),
-      typescript({
-        tsconfig: './tsconfig.json',
-        compilerOptions: {
-          rootDir: '',
-        },
-      }),
-    ],
-    external: (id) => !(path.isAbsolute(id) || id.startsWith('.')),
   },
 ];
