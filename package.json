@@ -1,17 +1,28 @@
 {
   "name": "uixtra",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "UI Components, Utility Functions",
   "type": "module",
   "scripts": {
     "build": "rimraf dist && rollup -c --bundleConfigAsCjs",
     "postbuild": "node ./scripts/postBuild.js"
   },
-  "main": "index.ts",
   "repository": "git@github.com:luciferRK/uixtra.git",
   "author": "lucifer_rk",
   "license": "MIT",
   "private": false,
+  "exports": {
+    "./components": {
+      "types": "./components/index.d.ts",
+      "import": "./components/index.esm.js",
+      "require": "./components/index.cjs.js"
+    },
+    "./utils": {
+      "types": "./utils/index.d.ts",
+      "import": "./utils/index.esm.js",
+      "require": "./utils/index.cjs.js"
+    }
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
