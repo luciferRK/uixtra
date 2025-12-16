@@ -1,3 +1,8 @@
+## Version 1.0.7
+
+> - Updated exports path with root entry point 
+> - Minified the build js files with sourcemaps
+
 ## Version 1.0.6
 
 > - Discarded deep-api imports for components
