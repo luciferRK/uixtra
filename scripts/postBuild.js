@@ -23,6 +23,9 @@ async function createPackageJson() {
   const newPackageData = {
     ...restPackageContent,
     private: false,
+    main: './index.cjs',
+    module: './index.esm.js',
+    types: './index.d.ts',
   };
 
   const targetPath = path.resolve(distPath, './package.json');
